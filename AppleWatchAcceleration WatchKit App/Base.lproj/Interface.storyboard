@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="18122" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch40"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="18022"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="AppleWatchAcceleration_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label width="136" height="15" alignment="left" text="rotation" textAlignment="center" id="xvc-rk-re1"/>
+                        <label width="136" height="15" alignment="left" text="X:" id="NyM-DQ-3U1"/>
+                        <label width="136" height="15" alignment="left" text="Y:" id="UMt-6M-bvY"/>
+                        <label width="136" height="15" alignment="left" text="Z:" id="fct-XM-2WA"/>
+                        <label width="136" height="15" alignment="left" text="acceleration" textAlignment="center" id="zaI-Hj-hpl"/>
+                        <label width="136" height="15" alignment="left" text="X:" id="zDd-KY-YA5"/>
+                        <label width="136" height="15" alignment="left" text="Y:" id="fWW-fD-pb2"/>
+                        <label width="136" height="15" alignment="left" text="Z:" id="hgH-Kk-4C3"/>
+                    </items>
+                    <connections>
+                        <outlet property="acceleration" destination="zaI-Hj-hpl" id="e2v-bJ-yxa"/>
+                        <outlet property="rotation" destination="xvc-rk-re1" id="bbp-Le-POc"/>
+                        <outlet property="xAcceleration" destination="zDd-KY-YA5" id="TWL-Gk-ZU3"/>
+                        <outlet property="xRotation" destination="NyM-DQ-3U1" id="2BN-HL-UHH"/>
+                        <outlet property="yAcceleration" destination="fWW-fD-pb2" id="795-K6-zge"/>
+                        <outlet property="yRotation" destination="UMt-6M-bvY" id="lhw-ZI-8JK"/>
+                        <outlet property="zAcceleration" destination="hgH-Kk-4C3" id="RDh-hj-eLg"/>
+                        <outlet property="zRotation" destination="fct-XM-2WA" id="McS-8S-WKm"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="AppleWatchAcceleration_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="AppleWatchAcceleration_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+    </scenes>
+</document>
