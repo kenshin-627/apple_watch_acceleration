@@ -1,0 +1,6 @@
+framework module Pods_AppleWatchAcceleration {
+  umbrella header "Pods-AppleWatchAcceleration-umbrella.h"
+
+  export *
+  module * { export * }
+}

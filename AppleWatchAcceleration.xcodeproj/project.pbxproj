@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		077F5474F2723E15E8FFF555 /* Pods_AppleWatchAcceleration_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8D2BC0DFA32ADD917E9AF2 /* Pods_AppleWatchAcceleration_WatchKit_Extension.framework */; };
+		56701EB60CD640BB49362158 /* Pods_AppleWatchAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C801CCFB640FB09F9B45A5C /* Pods_AppleWatchAcceleration.framework */; };
+		5E40853B3B163D92ACA5161D /* Pods_AppleWatchAcceleration_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7ABFDF0491240F59D6B82E0 /* Pods_AppleWatchAcceleration_WatchKit_App.framework */; };
 		B3975059263BAD8B00F3B255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3975058263BAD8B00F3B255 /* AppDelegate.swift */; };
 		B397505B263BAD8B00F3B255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B397505A263BAD8B00F3B255 /* SceneDelegate.swift */; };
 		B397505D263BAD8B00F3B255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B397505C263BAD8B00F3B255 /* ViewController.swift */; };
@@ -67,6 +70,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		758D757DD64008059D9B87E1 /* Pods-AppleWatchAcceleration WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleWatchAcceleration WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-AppleWatchAcceleration WatchKit Extension/Pods-AppleWatchAcceleration WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		7C801CCFB640FB09F9B45A5C /* Pods_AppleWatchAcceleration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleWatchAcceleration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A798174E58C59B90B0FED198 /* Pods-AppleWatchAcceleration WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleWatchAcceleration WatchKit App.debug.xcconfig"; path = "Target Support Files/Pods-AppleWatchAcceleration WatchKit App/Pods-AppleWatchAcceleration WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
 		B3975055263BAD8B00F3B255 /* AppleWatchAcceleration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleWatchAcceleration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3975058263BAD8B00F3B255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B397505A263BAD8B00F3B255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,13 +93,28 @@
 		B3975085263BAD9400F3B255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3975087263BAD9400F3B255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3975088263BAD9400F3B255 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		B7ABFDF0491240F59D6B82E0 /* Pods_AppleWatchAcceleration_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleWatchAcceleration_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C613BCEF7E08E366617DB5A6 /* Pods-AppleWatchAcceleration.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleWatchAcceleration.debug.xcconfig"; path = "Target Support Files/Pods-AppleWatchAcceleration/Pods-AppleWatchAcceleration.debug.xcconfig"; sourceTree = "<group>"; };
+		C94C9F0E487D6E940694891E /* Pods-AppleWatchAcceleration WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleWatchAcceleration WatchKit Extension.debug.xcconfig"; path = "Target Support Files/Pods-AppleWatchAcceleration WatchKit Extension/Pods-AppleWatchAcceleration WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		CC8D2BC0DFA32ADD917E9AF2 /* Pods_AppleWatchAcceleration_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleWatchAcceleration_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE7052DA02A8CFAE798A46FA /* Pods-AppleWatchAcceleration WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleWatchAcceleration WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-AppleWatchAcceleration WatchKit App/Pods-AppleWatchAcceleration WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		E597B72243EB6A66486E8B43 /* Pods-AppleWatchAcceleration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleWatchAcceleration.release.xcconfig"; path = "Target Support Files/Pods-AppleWatchAcceleration/Pods-AppleWatchAcceleration.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		010845DC121D41530BE9AC1E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E40853B3B163D92ACA5161D /* Pods_AppleWatchAcceleration_WatchKit_App.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B3975052263BAD8B00F3B255 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56701EB60CD640BB49362158 /* Pods_AppleWatchAcceleration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,12 +122,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				077F5474F2723E15E8FFF555 /* Pods_AppleWatchAcceleration_WatchKit_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BA1DB3953C47232143F0FAD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C801CCFB640FB09F9B45A5C /* Pods_AppleWatchAcceleration.framework */,
+				B7ABFDF0491240F59D6B82E0 /* Pods_AppleWatchAcceleration_WatchKit_App.framework */,
+				CC8D2BC0DFA32ADD917E9AF2 /* Pods_AppleWatchAcceleration_WatchKit_Extension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B397504C263BAD8A00F3B255 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +146,8 @@
 				B397506D263BAD9100F3B255 /* AppleWatchAcceleration WatchKit App */,
 				B397507C263BAD9300F3B255 /* AppleWatchAcceleration WatchKit Extension */,
 				B3975056263BAD8B00F3B255 /* Products */,
+				F13909C4256CCE5ECF74F911 /* Pods */,
+				7BA1DB3953C47232143F0FAD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,6 +199,20 @@
 			path = "AppleWatchAcceleration WatchKit Extension";
 			sourceTree = "<group>";
 		};
+		F13909C4256CCE5ECF74F911 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C613BCEF7E08E366617DB5A6 /* Pods-AppleWatchAcceleration.debug.xcconfig */,
+				E597B72243EB6A66486E8B43 /* Pods-AppleWatchAcceleration.release.xcconfig */,
+				A798174E58C59B90B0FED198 /* Pods-AppleWatchAcceleration WatchKit App.debug.xcconfig */,
+				DE7052DA02A8CFAE798A46FA /* Pods-AppleWatchAcceleration WatchKit App.release.xcconfig */,
+				C94C9F0E487D6E940694891E /* Pods-AppleWatchAcceleration WatchKit Extension.debug.xcconfig */,
+				758D757DD64008059D9B87E1 /* Pods-AppleWatchAcceleration WatchKit Extension.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,10 +220,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B3975093263BAD9400F3B255 /* Build configuration list for PBXNativeTarget "AppleWatchAcceleration" */;
 			buildPhases = (
+				FF96BCAD0D573C5CFB564033 /* [CP] Check Pods Manifest.lock */,
 				B3975051263BAD8B00F3B255 /* Sources */,
 				B3975052263BAD8B00F3B255 /* Frameworks */,
 				B3975053263BAD8B00F3B255 /* Resources */,
 				B3975092263BAD9400F3B255 /* Embed Watch Content */,
+				C65FFFE904EB99768ACE5557 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,8 +241,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B397508F263BAD9400F3B255 /* Build configuration list for PBXNativeTarget "AppleWatchAcceleration WatchKit App" */;
 			buildPhases = (
+				C2127BC44891A94554A30CAA /* [CP] Check Pods Manifest.lock */,
 				B3975067263BAD9100F3B255 /* Resources */,
 				B397508E263BAD9400F3B255 /* Embed App Extensions */,
+				010845DC121D41530BE9AC1E /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -208,6 +260,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B397508B263BAD9400F3B255 /* Build configuration list for PBXNativeTarget "AppleWatchAcceleration WatchKit Extension" */;
 			buildPhases = (
+				77EFE8B309D4108DFAA1E52C /* [CP] Check Pods Manifest.lock */,
 				B3975074263BAD9300F3B255 /* Sources */,
 				B3975075263BAD9300F3B255 /* Frameworks */,
 				B3975076263BAD9300F3B255 /* Resources */,
@@ -290,6 +343,92 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		77EFE8B309D4108DFAA1E52C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AppleWatchAcceleration WatchKit Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2127BC44891A94554A30CAA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AppleWatchAcceleration WatchKit App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C65FFFE904EB99768ACE5557 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppleWatchAcceleration/Pods-AppleWatchAcceleration-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppleWatchAcceleration/Pods-AppleWatchAcceleration-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppleWatchAcceleration/Pods-AppleWatchAcceleration-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF96BCAD0D573C5CFB564033 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AppleWatchAcceleration-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B3975051263BAD8B00F3B255 /* Sources */ = {
@@ -469,6 +608,7 @@
 		};
 		B397508C263BAD9400F3B255 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C94C9F0E487D6E940694891E /* Pods-AppleWatchAcceleration WatchKit Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
@@ -491,6 +631,7 @@
 		};
 		B397508D263BAD9400F3B255 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 758D757DD64008059D9B87E1 /* Pods-AppleWatchAcceleration WatchKit Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
@@ -514,6 +655,7 @@
 		};
 		B3975090263BAD9400F3B255 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A798174E58C59B90B0FED198 /* Pods-AppleWatchAcceleration WatchKit App.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -534,6 +676,7 @@
 		};
 		B3975091263BAD9400F3B255 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE7052DA02A8CFAE798A46FA /* Pods-AppleWatchAcceleration WatchKit App.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -555,6 +698,7 @@
 		};
 		B3975094263BAD9400F3B255 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C613BCEF7E08E366617DB5A6 /* Pods-AppleWatchAcceleration.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -576,6 +720,7 @@
 		};
 		B3975095263BAD9400F3B255 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E597B72243EB6A66486E8B43 /* Pods-AppleWatchAcceleration.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

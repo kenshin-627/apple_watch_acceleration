@@ -7,17 +7,11 @@
 
 import UIKit
 import WatchConnectivity
+import PKHUD
 
 class ViewController: UIViewController, WCSessionDelegate {
     
-    @IBOutlet weak var xRotationLabel: UILabel!
-    @IBOutlet weak var yRotationLabel: UILabel!
-    @IBOutlet weak var zRotationLabel: UILabel!
-    @IBOutlet weak var xAccelerationLabel: UILabel!
-    @IBOutlet weak var yAccelerationLabel: UILabel!
-    @IBOutlet weak var zAccelerationLabel: UILabel!
-    
-    var dataArray: [Double] = []
+    @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,24 +37,30 @@ class ViewController: UIViewController, WCSessionDelegate {
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
         print("iOS: Did receive user info")
         DispatchQueue.main.async {
-            if let xRotationDouble = userInfo["xRotation"] as? Double {
-                self.xRotationLabel.text = String(format: "X: %2f", xRotationDouble)
+            HUD.show(.progress)
+            if let dataArray: [[Double]] = userInfo["DATA_ARRAY"] as? [[Double]] {
+                print(dataArray)
+                for (xyz, data) in dataArray.enumerated() {
+                    var xyzStr = ""
+                    switch xyz {
+                    case 0:
+                        xyzStr = "X"
+                    case 1:
+                        xyzStr = "Y"
+                    case 2:
+                        xyzStr = "Z"
+                    default:
+                        xyzStr = "不明"
+                    }
+                    self.textView.text += "\(xyzStr)\n"
+                    for (i, d) in data.enumerated() {
+                        self.textView.text += "\(i): \(d)\n"
+                    }
+                    self.textView.text += "\n\n"
+                }
+                WCSession.default.transferUserInfo(["FINISH" : true])
             }
-            if let yRotationDouble = userInfo["yRotation"] as? Double {
-                self.yRotationLabel.text = String(format: "Y: %2f", yRotationDouble)
-            }
-            if let zRotationDouble = userInfo["zRotation"] as? Double {
-                self.zRotationLabel.text = String(format: "Z: %2f", zRotationDouble)
-            }
-            if let xAccelerationDouble = userInfo["xAcceleration"] as? Double {
-                self.xAccelerationLabel.text = String(format: "X: %2f", xAccelerationDouble)
-            }
-            if let yAccelerationDouble = userInfo["yAcceleration"] as? Double {
-                self.yAccelerationLabel.text = String(format: "Y: %2f", yAccelerationDouble)
-            }
-            if let zAccelerationDouble = userInfo["zAcceleration"] as? Double {
-                self.zAccelerationLabel.text = String(format: "Z: %2f", zAccelerationDouble)
-            }
+            HUD.hide()
         }
     }
     
