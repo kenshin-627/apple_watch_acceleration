@@ -7,6 +7,7 @@ target 'AppleWatchAcceleration' do
 
   # Pods for AppleWatchAcceleration
 pod 'PKHUD'
+pod 'Charts'
 
 end
 

@@ -26,7 +26,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     var zAccelerationArray: [Double] = []
     var dataArray: [[Double]] = []
     var dateString: String = ""
-    var updateInterval: Double = 1
+    var updateInterval: Double = 0.1
     
     override func awake(withContext context: Any?) {
         print("WatchOS: Awake")
@@ -109,14 +109,11 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     @IBAction func stopAction() {
         motionManager.stopDeviceMotionUpdates()
         stopButton.setEnabled(false)
-        xAcceleration.setText("X:")
-        yAcceleration.setText("Y:")
-        zAcceleration.setText("Z:")
         var actions: [WKAlertAction] = []
         
         let okAction = WKAlertAction(title: "送信", style: .default) {
             // 記録した加速度をまとめる
-            self.dateString += "_\(self.updateInterval)"
+            self.dateString += " \(self.updateInterval)"
             self.dataArray.append(self.xAccelerationArray)
             self.dataArray.append(self.yAccelerationArray)
             self.dataArray.append(self.zAccelerationArray)
@@ -148,6 +145,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         actions.append(okAction)
         actions.append(cancelAction)
         presentAlert(withTitle: "確認", message: "iPhoneへデータを送信します", preferredStyle: .alert, actions: actions)
+        xAcceleration.setText("X:")
+        yAcceleration.setText("Y:")
+        zAcceleration.setText("Z:")
     }
     
 }

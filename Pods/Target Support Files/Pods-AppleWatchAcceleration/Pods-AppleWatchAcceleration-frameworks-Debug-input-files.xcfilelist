@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-AppleWatchAcceleration/Pods-AppleWatchAcceleration-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework

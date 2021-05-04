@@ -24,23 +24,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CwW-nw-aXB" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="342" width="343" height="305"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="HCG-nO-bZr">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="20e-we-611">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="dZi-lK-zns">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="データ確認"/>
-                                <connections>
-                                    <segue destination="RM3-pT-Edf" kind="show" id="44x-XH-9A3"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="データ確認" id="waB-LJ-ie8">
+                            <connections>
+                                <segue destination="RM3-pT-Edf" kind="show" id="DI0-uS-7ws"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="lineChartView" destination="CwW-nw-aXB" id="EVR-XZ-De2"/>
                         <outlet property="textView" destination="Jgj-ya-r3I" id="MLj-o8-M2K"/>
                     </connections>
                 </viewController>
@@ -87,7 +88,7 @@
                     <navigationItem key="navigationItem" id="SpD-8M-ta7"/>
                     <connections>
                         <outlet property="dataTableView" destination="Yy3-n5-eZc" id="EZc-nP-8RQ"/>
-                        <segue destination="mZ9-5j-aYL" kind="show" id="3zP-cU-xCC"/>
+                        <segue destination="mZ9-5j-aYL" kind="show" identifier="toGraph" id="3zP-cU-xCC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXf-81-N20" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -110,12 +111,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tnj-ZD-x8G" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="342" width="343" height="305"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vTc-3m-1aU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="1Q5-dt-cL4"/>
                     <connections>
+                        <outlet property="lineChartView" destination="Tnj-ZD-x8G" id="aaX-YB-H06"/>
                         <outlet property="textView" destination="bqE-FC-6Uh" id="Jwg-Ni-iAw"/>
                     </connections>
                 </viewController>
