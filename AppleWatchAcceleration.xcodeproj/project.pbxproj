@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		077F5474F2723E15E8FFF555 /* Pods_AppleWatchAcceleration_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC8D2BC0DFA32ADD917E9AF2 /* Pods_AppleWatchAcceleration_WatchKit_Extension.framework */; };
 		56701EB60CD640BB49362158 /* Pods_AppleWatchAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C801CCFB640FB09F9B45A5C /* Pods_AppleWatchAcceleration.framework */; };
 		5E40853B3B163D92ACA5161D /* Pods_AppleWatchAcceleration_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7ABFDF0491240F59D6B82E0 /* Pods_AppleWatchAcceleration_WatchKit_App.framework */; };
+		B36D1C82264110090031D15F /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36D1C81264110090031D15F /* DataViewController.swift */; };
+		B36D1C84264165030031D15F /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36D1C83264165030031D15F /* GraphViewController.swift */; };
 		B3975059263BAD8B00F3B255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3975058263BAD8B00F3B255 /* AppDelegate.swift */; };
 		B397505B263BAD8B00F3B255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B397505A263BAD8B00F3B255 /* SceneDelegate.swift */; };
 		B397505D263BAD8B00F3B255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B397505C263BAD8B00F3B255 /* ViewController.swift */; };
@@ -73,6 +75,8 @@
 		758D757DD64008059D9B87E1 /* Pods-AppleWatchAcceleration WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleWatchAcceleration WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-AppleWatchAcceleration WatchKit Extension/Pods-AppleWatchAcceleration WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		7C801CCFB640FB09F9B45A5C /* Pods_AppleWatchAcceleration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleWatchAcceleration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A798174E58C59B90B0FED198 /* Pods-AppleWatchAcceleration WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleWatchAcceleration WatchKit App.debug.xcconfig"; path = "Target Support Files/Pods-AppleWatchAcceleration WatchKit App/Pods-AppleWatchAcceleration WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
+		B36D1C81264110090031D15F /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		B36D1C83264165030031D15F /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		B3975055263BAD8B00F3B255 /* AppleWatchAcceleration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleWatchAcceleration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3975058263BAD8B00F3B255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B397505A263BAD8B00F3B255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 				B3975058263BAD8B00F3B255 /* AppDelegate.swift */,
 				B397505A263BAD8B00F3B255 /* SceneDelegate.swift */,
 				B397505C263BAD8B00F3B255 /* ViewController.swift */,
+				B36D1C81264110090031D15F /* DataViewController.swift */,
+				B36D1C83264165030031D15F /* GraphViewController.swift */,
 				B397505E263BAD8B00F3B255 /* Main.storyboard */,
 				B3975061263BAD9100F3B255 /* Assets.xcassets */,
 				B3975063263BAD9100F3B255 /* LaunchScreen.storyboard */,
@@ -209,7 +215,6 @@
 				C94C9F0E487D6E940694891E /* Pods-AppleWatchAcceleration WatchKit Extension.debug.xcconfig */,
 				758D757DD64008059D9B87E1 /* Pods-AppleWatchAcceleration WatchKit Extension.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -435,6 +440,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B36D1C82264110090031D15F /* DataViewController.swift in Sources */,
+				B36D1C84264165030031D15F /* GraphViewController.swift in Sources */,
 				B397505D263BAD8B00F3B255 /* ViewController.swift in Sources */,
 				B3975059263BAD8B00F3B255 /* AppDelegate.swift in Sources */,
 				B397505B263BAD8B00F3B255 /* SceneDelegate.swift in Sources */,

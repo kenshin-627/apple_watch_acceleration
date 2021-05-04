@@ -25,18 +25,22 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     var yAccelerationArray: [Double] = []
     var zAccelerationArray: [Double] = []
     var dataArray: [[Double]] = []
+    var dateString: String = ""
+    var updateInterval: Double = 1
     
     override func awake(withContext context: Any?) {
         print("WatchOS: Awake")
+        
         // iPhoneと通信する(WatchConnectivity)準備
         if WCSession.isSupported() {
             let session = WCSession.default
             session.delegate = self
             session.activate()
         }
+        
         stopButton.setEnabled(false)
         // 動作の更新間隔
-        motionManager.deviceMotionUpdateInterval = 1
+        motionManager.deviceMotionUpdateInterval = updateInterval
     }
     
     override func willActivate() {
@@ -53,31 +57,44 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
         print("WatchOS: Did receive user info")
+        
         if userInfo["FINISH"] as? Bool ?? false {
             dataArray.removeAll()
             var actions: [WKAlertAction] = []
+            
             let okAction: WKAlertAction = WKAlertAction(title: "OK", style: .default) {
                 self.startButton.setEnabled(true)
+                self.startButton.setTitle("START")
                 self.dismiss()
             }
+            
             actions.append(okAction)
             presentAlert(withTitle: "完了", message: "データの送信が完了しました", preferredStyle: .alert, actions: actions)
         }
+        
     }
     
     @IBAction func startAction() {
+        
         if motionManager.isDeviceMotionAvailable {
+            
             let handler: CMDeviceMotionHandler = {(motion: CMDeviceMotion?, error: Error?) -> Void in
                 // ラベルの更新
                 self.xAcceleration.setText(String(format: "X: %2f", motion!.userAcceleration.x))
                 self.yAcceleration.setText(String(format: "Y: %2f", motion!.userAcceleration.y))
                 self.zAcceleration.setText(String(format: "Z: %2f", motion!.userAcceleration.z))
-                
                 // 加速度の記録
                 self.xAccelerationArray.append(motion!.userAcceleration.x)
                 self.yAccelerationArray.append(motion!.userAcceleration.y)
                 self.zAccelerationArray.append(motion!.userAcceleration.z)
             }
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+            dateFormatter.locale = Locale(identifier: "ja_JP")
+            dateFormatter.dateFormat = "yyyy/MM/dd HH/mm/ss"
+            dateString = dateFormatter.string(from: Date())
+            startButton.setTitle(dateString)
             motionManager.startDeviceMotionUpdates(to: OperationQueue.current!, withHandler: handler)
             startButton.setEnabled(false)
             stopButton.setEnabled(true)
@@ -86,6 +103,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             self.yAcceleration.setText("利用不可")
             self.zAcceleration.setText("利用不可")
         }
+        
     }
     
     @IBAction func stopAction() {
@@ -98,13 +116,15 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         
         let okAction = WKAlertAction(title: "送信", style: .default) {
             // 記録した加速度をまとめる
+            self.dateString += "_\(self.updateInterval)"
             self.dataArray.append(self.xAccelerationArray)
             self.dataArray.append(self.yAccelerationArray)
             self.dataArray.append(self.zAccelerationArray)
+            let sendData: [String : [[Double]]] = [self.dateString : self.dataArray]
             
-            // iPhoneに加速度を送信
+            // iPhoneにデータを送信
             if WCSession.default.isReachable {
-                WCSession.default.transferUserInfo(["DATA_ARRAY" : self.dataArray])
+                WCSession.default.transferUserInfo(["SEND_DATA" : sendData])
                 // 加速度のデータを消去
                 self.xAccelerationArray.removeAll()
                 self.yAccelerationArray.removeAll()
@@ -121,6 +141,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             self.zAccelerationArray.removeAll()
             self.dataArray.removeAll()
             self.startButton.setEnabled(true)
+            self.startButton.setTitle("START")
             self.stopButton.setTitle("キャンセル")
         }
         
