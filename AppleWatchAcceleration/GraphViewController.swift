@@ -21,6 +21,7 @@ class GraphViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = dateString
         if let tmp = userDefault.object(forKey: dateString) as? [[Double]] {
             accelerationArray = tmp
             interval = Double(dateString.components(separatedBy: " ")[2])!

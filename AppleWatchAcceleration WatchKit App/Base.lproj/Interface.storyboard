@@ -25,9 +25,16 @@
                                 <action selector="stopAction" destination="AgC-eL-Hgc" id="hma-IT-vvv"/>
                             </connections>
                         </button>
+                        <label alignment="left" text="interval" id="A9Q-E5-rmC"/>
+                        <picker height="100" alignment="left" id="PKl-Uq-Mau">
+                            <connections>
+                                <action selector="IntervalPickerAction:" destination="AgC-eL-Hgc" id="EWc-OX-ePg"/>
+                            </connections>
+                        </picker>
                     </items>
                     <connections>
                         <outlet property="acceleration" destination="zaI-Hj-hpl" id="e2v-bJ-yxa"/>
+                        <outlet property="intervalPicker" destination="PKl-Uq-Mau" id="841-TV-Vuc"/>
                         <outlet property="startButton" destination="4nL-Qd-x0s" id="j4P-oy-XZG"/>
                         <outlet property="stopButton" destination="E6O-B9-fPP" id="WEM-0J-iVw"/>
                         <outlet property="xAcceleration" destination="zDd-KY-YA5" id="TWL-Gk-ZU3"/>

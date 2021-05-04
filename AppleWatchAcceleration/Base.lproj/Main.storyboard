@@ -34,7 +34,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="HCG-nO-bZr">
-                        <barButtonItem key="rightBarButtonItem" title="データ確認" id="waB-LJ-ie8">
+                        <barButtonItem key="rightBarButtonItem" title="データ一覧" id="waB-LJ-ie8">
                             <connections>
                                 <segue destination="RM3-pT-Edf" kind="show" id="DI0-uS-7ws"/>
                             </connections>
@@ -49,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="944.79999999999995" y="63.418290854572717"/>
         </scene>
-        <!--Data View Controller-->
+        <!--データ一覧-->
         <scene sceneID="ObW-ub-p0j">
             <objects>
                 <viewController storyboardIdentifier="Data" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RM3-pT-Edf" customClass="DataViewController" customModule="AppleWatchAcceleration" customModuleProvider="target" sceneMemberID="viewController">
@@ -69,13 +69,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMp-GP-tXM">
-                                                    <rect key="frame" x="16" y="11" width="343" height="43"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="-1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMp-GP-tXM">
+                                                    <rect key="frame" x="16" y="11" width="292" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" tag="-2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZW-9F-TIr">
+                                                    <rect key="frame" x="316" y="11" width="43" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="trash" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="trashAction:" destination="RM3-pT-Edf" eventType="touchUpInside" id="rab-aw-PNI"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -85,7 +93,7 @@
                         <viewLayoutGuide key="safeArea" id="SsU-sO-G3U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SpD-8M-ta7"/>
+                    <navigationItem key="navigationItem" title="データ一覧" id="SpD-8M-ta7"/>
                     <connections>
                         <outlet property="dataTableView" destination="Yy3-n5-eZc" id="EZc-nP-8RQ"/>
                         <segue destination="mZ9-5j-aYL" kind="show" identifier="toGraph" id="3zP-cU-xCC"/>
@@ -150,6 +158,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

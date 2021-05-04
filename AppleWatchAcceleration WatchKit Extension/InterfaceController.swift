@@ -19,6 +19,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     @IBOutlet weak var zAcceleration: WKInterfaceLabel!
     @IBOutlet weak var startButton: WKInterfaceButton!
     @IBOutlet weak var stopButton: WKInterfaceButton!
+    @IBOutlet weak var intervalPicker: WKInterfacePicker!
     
     let motionManager = CMMotionManager()
     var xAccelerationArray: [Double] = []
@@ -27,6 +28,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     var dataArray: [[Double]] = []
     var dateString: String = ""
     var updateInterval: Double = 0.1
+    var userDefault = UserDefaults.standard
     
     override func awake(withContext context: Any?) {
         print("WatchOS: Awake")
@@ -39,8 +41,17 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         }
         
         stopButton.setEnabled(false)
-        // 動作の更新間隔
-        motionManager.deviceMotionUpdateInterval = updateInterval
+        if let savedInterval = userDefault.object(forKey: "INTERVAL") as? Double {
+            updateInterval = savedInterval
+        }
+        var itemList: [WKPickerItem] = []
+        for i in 1...50 {
+            let pickerItem = WKPickerItem()
+            pickerItem.title = String(Double(i) / 10)
+            itemList.append(pickerItem)
+        }
+        intervalPicker.setItems(itemList)
+        intervalPicker.setSelectedItemIndex(Int(updateInterval * 10 - 1))
     }
     
     override func willActivate() {
@@ -75,6 +86,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     }
     
     @IBAction func startAction() {
+        // 動作の更新間隔
+        motionManager.deviceMotionUpdateInterval = updateInterval
         
         if motionManager.isDeviceMotionAvailable {
             
@@ -150,4 +163,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         zAcceleration.setText("Z:")
     }
     
+    @IBAction func IntervalPickerAction(_ value: Int) {
+        updateInterval = Double(value + 1) / 10
+        userDefault.setValue(updateInterval, forKey: "INTERVAL")
+    }
 }
