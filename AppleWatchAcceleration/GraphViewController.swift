@@ -8,11 +8,13 @@
 import UIKit
 import Charts
 import Foundation
+import PKHUD
 
 class GraphViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var lineChartView: LineChartView!
+    @IBOutlet weak var detailButton: UIButton!
     
     var userDefault = UserDefaults.standard
     var dateString: String = ""
@@ -21,6 +23,7 @@ class GraphViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        HUD.show(.progress)
         navigationItem.title = dateString
         if let tmp = userDefault.object(forKey: dateString) as? [[Double]] {
             accelerationArray = tmp
@@ -29,26 +32,12 @@ class GraphViewController: UIViewController {
             textView.text = "startDate: \(dateString.components(separatedBy: " ")[0])\n"
             textView.text += "startTime: \(dateString.components(separatedBy: " ")[1])\n"
             textView.text += "interval: \(interval)\n\n"
-            var xyzString = ""
-            for (xyz, dataDoubleArray) in accelerationArray.enumerated() {
-                switch xyz {
-                case 0:
-                    xyzString = "X"
-                case 1:
-                    xyzString = "Y"
-                case 2:
-                    xyzString = "Z"
-                default:
-                    xyzString = "不明"
-                }
-                self.textView.text += "\(xyzString)\n"
-                for (i, dataDouble) in dataDoubleArray.enumerated() {
-                    self.textView.text += "\(i): \(dataDouble)\n"
-                }
-                self.textView.text += "\n"
-            }
         }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         drawLineChart()
+        HUD.hide()
     }
     
     func drawLineChart() {
@@ -85,6 +74,30 @@ class GraphViewController: UIViewController {
         lineChartView.xAxis.drawGridLinesEnabled = false
     }
 
+    @IBAction func showDetail(_ sender: Any) {
+        present(UIAlertController(title: "表示中", message: "しばらくお待ちください", preferredStyle: .alert), animated: true) {
+            self.detailButton.isHidden = true
+            var xyzString = ""
+            for (xyz, dataDoubleArray) in self.accelerationArray.enumerated() {
+                switch xyz {
+                case 0:
+                    xyzString = "X"
+                case 1:
+                    xyzString = "Y"
+                case 2:
+                    xyzString = "Z"
+                default:
+                    xyzString = "不明"
+                }
+                self.textView.text += "\(xyzString)\n"
+                for (i, dataDouble) in dataDoubleArray.enumerated() {
+                    self.textView.text += "\(i): \(dataDouble)\n"
+                }
+                self.textView.text += "\n"
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     /*
     // MARK: - Navigation
 

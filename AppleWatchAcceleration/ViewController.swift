@@ -14,6 +14,7 @@ class ViewController: UIViewController, WCSessionDelegate {
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var lineChartView: LineChartView!
+    @IBOutlet weak var detailButton: UIButton!
     
     var userDefault = UserDefaults.standard
     var dateString: String = ""
@@ -28,6 +29,9 @@ class ViewController: UIViewController, WCSessionDelegate {
             session.delegate = self
             session.activate()
         }
+        
+        detailButton.isHidden = true
+        
         // userDefault全削除
 //        if let dates = userDefault.object(forKey: "DATE_ARRAY") as? [String] {
 //            for date in dates {
@@ -53,12 +57,14 @@ class ViewController: UIViewController, WCSessionDelegate {
         print("iOS: Did receive user info")
         
         DispatchQueue.main.async {
-            HUD.show(.progress)
             if let sendData: [String : [[Double]]] = userInfo["SEND_DATA"] as? [String : [[Double]]] {
                 DispatchQueue.main.async {
                     for key in sendData.keys {
+                        // 送られてきたデータの日時を記録
                         self.dateString = key
+                        // 更新間隔を記録
                         self.interval = Double(self.dateString.components(separatedBy: " ")[2])!
+                        
                         if let tmp = sendData[self.dateString] {
                             self.accelerationArray = tmp
                             var dateArray: [String] = []
@@ -71,36 +77,18 @@ class ViewController: UIViewController, WCSessionDelegate {
                             self.textView.text = "startDate: \(self.dateString.components(separatedBy: " ")[0])\n"
                             self.textView.text += "startTime: \(self.dateString.components(separatedBy: " ")[1])\n"
                             self.textView.text += "interval: \(self.interval)\n\n"
-                            var xyzString = ""
-                            for (xyz, dataDoubleArray) in self.accelerationArray.enumerated() {
-                                switch xyz {
-                                case 0:
-                                    xyzString = "X"
-                                case 1:
-                                    xyzString = "Y"
-                                case 2:
-                                    xyzString = "Z"
-                                default:
-                                    xyzString = "不明"
-                                }
-                                self.textView.text += "\(xyzString)\n"
-                                for (i, dataDouble) in dataDoubleArray.enumerated() {
-                                    self.textView.text += "\(i): \(dataDouble)\n"
-                                }
-                                self.textView.text += "\n"
-                            }
+                            self.detailButton.isHidden = false
                         }
                     }
                     self.drawLineChart()
                 }
                 WCSession.default.transferUserInfo(["FINISH" : true])
             }
-            
-            HUD.hide()
         }
     }
     
     func drawLineChart() {
+        HUD.show(.progress)
         // DataEntry作成
         var entryArray: [[ChartDataEntry]] = []
         for i in 0...2 {
@@ -132,6 +120,33 @@ class ViewController: UIViewController, WCSessionDelegate {
         data.highlightEnabled = false
         lineChartView.data = data
         lineChartView.xAxis.drawGridLinesEnabled = false
+        HUD.hide()
     }
+    
+    @IBAction func showDetail(_ sender: Any) {
+        present(UIAlertController(title: "表示中", message: "しばらくお待ちください", preferredStyle: .alert), animated: true) {
+            self.detailButton.isHidden = true
+            var xyzString = ""
+            for (xyz, dataDoubleArray) in self.accelerationArray.enumerated() {
+                switch xyz {
+                case 0:
+                    xyzString = "X"
+                case 1:
+                    xyzString = "Y"
+                case 2:
+                    xyzString = "Z"
+                default:
+                    xyzString = "不明"
+                }
+                self.textView.text += "\(xyzString)\n"
+                for (i, dataDouble) in dataDoubleArray.enumerated() {
+                    self.textView.text += "\(i): \(dataDouble)\n"
+                }
+                self.textView.text += "\n"
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
 }
 

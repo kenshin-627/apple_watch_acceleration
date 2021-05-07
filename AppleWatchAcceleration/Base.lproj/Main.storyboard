@@ -29,6 +29,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lky-4K-7zm">
+                                <rect key="frame" x="121" y="163" width="132" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="詳細を表示する"/>
+                                <connections>
+                                    <action selector="showDetail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cNt-qQ-S9a"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -41,6 +49,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="detailButton" destination="Lky-4K-7zm" id="VnY-Ci-rHb"/>
                         <outlet property="lineChartView" destination="CwW-nw-aXB" id="EVR-XZ-De2"/>
                         <outlet property="textView" destination="Jgj-ya-r3I" id="MLj-o8-M2K"/>
                     </connections>
@@ -142,12 +151,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovv-Wx-nPc">
+                                <rect key="frame" x="121" y="163" width="132" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="詳細を表示する"/>
+                                <connections>
+                                    <action selector="showDetail:" destination="mZ9-5j-aYL" eventType="touchUpInside" id="WVq-HK-0w3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vTc-3m-1aU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="1Q5-dt-cL4"/>
                     <connections>
+                        <outlet property="detailButton" destination="ovv-Wx-nPc" id="LnK-nK-iFm"/>
                         <outlet property="lineChartView" destination="Tnj-ZD-x8G" id="aaX-YB-H06"/>
                         <outlet property="textView" destination="bqE-FC-6Uh" id="Jwg-Ni-iAw"/>
                     </connections>
