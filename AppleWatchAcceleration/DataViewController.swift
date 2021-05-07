@@ -6,18 +6,23 @@
 //
 
 import UIKit
+import Foundation
 
-class DataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DataViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var dataTableView: UITableView!
+    @IBOutlet weak var labelTextField: UITextField!
     
     let userDefault = UserDefaults.standard
     var dates: [String] = []
+    var nowIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         dataTableView.delegate = self
         dataTableView.dataSource = self
+        labelTextField.isHidden = true
+        labelTextField.delegate = self
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -62,6 +67,40 @@ class DataViewController: UIViewController, UITableViewDelegate, UITableViewData
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func plusAction(_ sender: UIButton) {
+        nowIndex = dataTableView.indexPath(for: sender.superview!.superview as! UITableViewCell)!.row
+        labelTextField.text = ""
+        labelTextField.becomeFirstResponder()
+    }
+    
+    @IBAction func labelTextFieldAction(_ sender: UITextField) {
+        if let label = labelTextField.text {
+            if label.trimmingCharacters(in: .whitespaces) == "" {
+                return
+            }
+            let date = dates[nowIndex]
+            let detail = date.components(separatedBy: " ")
+            let newDate = "\(detail[0]) \(detail[1]) \(detail[2]) \(labelTextField.text!)"
+            if var editDateArray = userDefault.object(forKey: "DATE_ARRAY") as? [String] {
+                let doubleArray = userDefault.object(forKey: editDateArray[nowIndex])
+                userDefault.removeObject(forKey: editDateArray[nowIndex])
+                editDateArray[nowIndex] = newDate
+                userDefault.setValue(doubleArray, forKey: editDateArray[nowIndex])
+                userDefault.setValue(editDateArray, forKey: "DATE_ARRAY")
+                dataTableView.reloadData()
+            }
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     /*

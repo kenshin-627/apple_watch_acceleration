@@ -70,18 +70,26 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="-1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMp-GP-tXM">
-                                                    <rect key="frame" x="16" y="11" width="292" height="43"/>
+                                                    <rect key="frame" x="16" y="11" width="257" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" tag="-2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZW-9F-TIr">
-                                                    <rect key="frame" x="316" y="11" width="43" height="43"/>
+                                                    <rect key="frame" x="324" y="11" width="35" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="trash" catalog="system"/>
                                                     <connections>
                                                         <action selector="trashAction:" destination="RM3-pT-Edf" eventType="touchUpInside" id="rab-aw-PNI"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" tag="-3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMx-42-A0o">
+                                                    <rect key="frame" x="281" y="11" width="35" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="plus" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="plusAction:" destination="RM3-pT-Edf" eventType="touchUpInside" id="F2X-DZ-ZwV"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -89,6 +97,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lel-pU-2eP">
+                                <rect key="frame" x="16" y="613" width="343" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="labelTextFieldAction:" destination="RM3-pT-Edf" eventType="editingDidEnd" id="cSR-3N-UjI"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SsU-sO-G3U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -96,6 +113,7 @@
                     <navigationItem key="navigationItem" title="データ一覧" id="SpD-8M-ta7"/>
                     <connections>
                         <outlet property="dataTableView" destination="Yy3-n5-eZc" id="EZc-nP-8RQ"/>
+                        <outlet property="labelTextField" destination="lel-pU-2eP" id="FJo-59-n0b"/>
                         <segue destination="mZ9-5j-aYL" kind="show" identifier="toGraph" id="3zP-cU-xCC"/>
                     </connections>
                 </viewController>
@@ -158,6 +176,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

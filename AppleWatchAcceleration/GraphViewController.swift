@@ -24,6 +24,7 @@ class GraphViewController: UIViewController {
         navigationItem.title = dateString
         if let tmp = userDefault.object(forKey: dateString) as? [[Double]] {
             accelerationArray = tmp
+            print(accelerationArray)
             interval = Double(dateString.components(separatedBy: " ")[2])!
             textView.text = "startDate: \(dateString.components(separatedBy: " ")[0])\n"
             textView.text += "startTime: \(dateString.components(separatedBy: " ")[1])\n"
